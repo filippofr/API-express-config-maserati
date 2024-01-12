@@ -16,7 +16,7 @@ export class OptionalService {
     }
 
     async findById(ModelloID: string): Promise<Optional[]> {
-        const optional = await OptionalModel.find({ ModelloID })
+        const optional = await OptionalModel.find({ ModelloID }).sort({ Predefinito: -1 })
             .populate('ModelloID CategoriaOptionalID');
 
         if (optional) {
